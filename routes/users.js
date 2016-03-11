@@ -15,8 +15,7 @@ router.get('/new', function(req, res, next) {
 });
 
 router.post('/new', function(req, res, next) {
-  console.log(req.body.name);
-  Users.push({name: req.body.name})
+
   res.redirect("/")
 });
 

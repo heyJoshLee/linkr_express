@@ -2,8 +2,14 @@ extends layout
 
 block content
   h1 All users
-  h1= posts
-  p There are #{posts} number of posts
-   each user in Users
-    li.user_preview= user.name
+  h4= length
+   ul
+     each post in posts
+      li.post_preview
+        h1= post.title
+        p= post.img
+        p= post.body
+        p= post.id
+        a(href="/posts/#{post.slug}") Click here
+
 

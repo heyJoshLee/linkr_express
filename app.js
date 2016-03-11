@@ -14,9 +14,11 @@ mongoose.connect("mongodb://localhost/linkr");
 var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
-  name: String,
-  password: String,
-  email: String
+  title: String,
+  body: String,
+  author: String,
+  img: String,
+  slug: String
 });
 
 mongoose.model("Post", PostSchema);
@@ -27,15 +29,6 @@ var posts = require('./routes/posts');
 
 
 var app = express();
-
-Users = [
-{
-  name: "josh"
-},
-{
-  name: "Tony"
-}
-];
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
