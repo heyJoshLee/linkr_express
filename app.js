@@ -6,9 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 
-
-
-
 mongoose.connect("mongodb://localhost/linkr");
 
 var Schema = mongoose.Schema;
@@ -18,7 +15,8 @@ var PostSchema = new Schema({
   body: String,
   author: String,
   img: String,
-  slug: String
+  slug: String,
+  date: {type: Date }
 });
 
 mongoose.model("Post", PostSchema);
@@ -29,6 +27,35 @@ var posts = require('./routes/posts');
 
 
 var app = express();
+
+app.locals.shortenBody = function(body) {
+   if (body.length > 200) {
+    var shortend = body.substring(0, 195);
+    shortend += ".....";
+    return shortend;  
+ } 
+  return title;
+}
+
+app.locals.shortenTitle = function(title){
+ if (title.length > 40) {
+    var shortend = title.substring(0, 37);
+    shortend += "...";
+    return shortend;  
+ } 
+  return title;
+}
+
+app.locals.formatDate = function(date) {
+  if(date instanceof Date) {
+  var days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
+      months = ["Jan", "Feb", "March", "April", "May", "June",
+                "July", "Aug", "Sept", "Nov", "Dec"];
+  return months[date.getMonth()] + " " +  date.getDate() + " " + days[date.getDay()]; 
+  } else {
+    return "date unknown"
+  }
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

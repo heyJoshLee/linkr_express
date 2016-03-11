@@ -6,10 +6,13 @@ block content
    ul
      each post in posts
       li.post_preview
-        h1= post.title
-        p= post.img
-        p= post.body
-        p= post.id
-        a(href="/posts/#{post.slug}") Click here
+        a(href="/posts/#{post.slug}")
+          if post.img
+            img.thumb(src="#{post.img}", alt="")
+        .preview_info
+          a(href="/posts/#{post.slug}")
+            h1= shortenTitle(post.title)
+          bodyShorten(post.body)
+          p= formatDate(post.date)
 
 

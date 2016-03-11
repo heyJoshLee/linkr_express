@@ -15,3 +15,37 @@ a {
 nav li {
   margin: 0 20px;
 }
+
+.thumb {
+  width: 150px;
+  height: 150px;
+}
+
+.post_preview {
+  list-style: none;
+  width: 900px;
+  height: 200px;
+  border: 1px solid black;
+}
+.post_preview img {
+  float: left;
+  margin-right: 40px;
+} 
+
+.post_preview img:after {
+  display: block;
+}
+
+.preview_info {
+}
+
+.preview_info:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+#body_input {
+  width: 800px;
+  height: 200px;
+}

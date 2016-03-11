@@ -26,7 +26,8 @@ router.post("/new", function(req, res, next) {
                       body: req.body["body"],
                       author: req.body["author"],
                       img: req.body["image"],
-                      slug: slugify(req.body["title"])
+                      slug: slugify(req.body["title"]),
+                      date: new Date()
             });
 
     post.save(function(err, doc) {
