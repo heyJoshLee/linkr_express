@@ -1,0 +1,12 @@
+extends layout
+
+
+block content
+  h1 New User
+    p Create a new user
+
+  form(action="/users/new" method="post" )
+    label(for="name_input")
+      p Name
+    input#name_input(type="text" name="name")
+    input(type="submit" value="Create new user")
