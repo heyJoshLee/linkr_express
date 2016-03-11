@@ -46,11 +46,15 @@ router.get('/:slug', function(req, res, next) {
               p_title: doc.title
           }); 
 
-
   });
-
-  
-
 });
+
+
+router.get("/delete/:slug", function(req, res, next) {
+  var slug = req.params["slug"];
+  Post.remove({"slug": slug}, function(err, doc) {
+    res.redirect("/");
+  });
+})
 
 module.exports = router;

@@ -14,5 +14,7 @@ block content
             h1= shortenTitle(post.title)
           bodyShorten(post.body)
           p= formatDate(post.date)
+          a.delete_thumb(href="posts/delete/#{post.slug}").
+            Delete
 
 
