@@ -1,0 +1,188 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
+}
+
+html, body {
+  padding: 0;
+  margin:0;
+  height: 100%;
+}
+
+main {
+  margin: 0;
+  padding: 10px 30px;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+
+.user_preview {
+  border: 1px solid black;
+}
+
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  padding: 10px 30px;
+  list-style: none;
+  font-size: 24px;
+}
+
+nav li:hover {
+  background: snow;
+  cursor: pointer;
+}
+
+nav {
+  position: relative;
+  background: rgba(52, 152, 219, 0.4);
+  width: 20%;
+  float: left;
+  height: 100%;
+  -webkit-box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+nav:after {
+  content: "";
+  display: none;
+  clear: both;
+}
+
+.thumb {
+  width: 150px;
+  height: 150px;
+}
+
+.post_preview {
+  list-style: none;
+  width: 900px;
+  height: 200px;
+  border: 1px solid black;
+}
+.post_preview img {
+  float: left;
+  margin-right: 40px;
+} 
+
+.post_preview img:after {
+  display: block;
+}
+
+.preview_info:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+#body_input {
+  width: 800px;
+  height: 200px;
+}
+
+
+
+body {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+}
+
+form.new_post {
+  padding: 40px 20px;
+  border-radius: 4px;
+
+}
+
+form.new_post p {
+  font-size: 32px;
+}
+
+form.new_post input[type='text'],
+form.new_category input[type='text']
+ {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+form.new_post textarea {
+  font-size: 24px;
+}
+
+form.new_post input[type="submit"] {
+  border: none;
+  margin-top: 200px;
+  display: block;
+  height: 20px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+form.new_category > input[type="submit"] {
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  width: 200px;
+  display: block;
+  margin: 20px auto 0;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b4e391+0,61c419+50,b4e391+100;Green+3D */
+  background: #b4e391; /* Old browsers */
+  background: -moz-linear-gradient(top,  #b4e391 0%, #61c419 50%, #b4e391 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 ); /* IE6-9 */
+}
+
+form.new_category > input[type="submit"]:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+form.new_category > input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+form.new_category {
+  width: 100%;
+}
+
+#post_show {
+  margin-top: 20px;
+  background: rgba(193, 193, 255, 0.1);
+  padding: 20px;
+}
+
+#post_show img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+

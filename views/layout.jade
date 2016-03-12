@@ -1,13 +1,11 @@
+include /_mixins
+
 doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
   body
-    nav
-      ul
-        li 
-          a(href="/") Home
-         li 
-          a(href="/posts/new") New Post
+    +nav_bar
+  main
     block content

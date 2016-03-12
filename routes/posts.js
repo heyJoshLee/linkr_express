@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
 var Post = mongoose.model("Post");
+var Category = mongoose.model("Category");
 
 function slugify(title) {
   var slug = title.replace(/\W/g, "-")
@@ -15,7 +16,13 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/new', function(req, res, next) {
-  res.render('posts_new', { title: 'Express' });
+
+  Category.find(function(err, collection) {
+    res.render('posts_new', { 
+      title: 'Express',
+      categories: collection
+    });
+  });
 });
 
 
@@ -27,6 +34,7 @@ router.post("/new", function(req, res, next) {
                       author: req.body["author"],
                       img: req.body["image"],
                       slug: slugify(req.body["title"]),
+                      categories: req.body["categories"],
                       date: new Date()
             });
 
@@ -41,11 +49,9 @@ router.get('/:slug', function(req, res, next) {
   Post.find({"slug": slug}, function(err, doc) {
     res.render('posts_show', 
             { title: 'Express' ,
-              head:  "header",
               post: doc[0],
               p_title: doc.title
           }); 
-
   });
 });
 

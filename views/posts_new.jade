@@ -3,9 +3,8 @@ extends layout
 
 block content
   h1 New Post
-    p Create a Post
 
-  form(action="/posts/new" method="post" )
+  form.new_post(action="/posts/new" method="post" )
 
     label(for="title_input")
       p Title
@@ -18,5 +17,11 @@ block content
     label(for="image_input")
       p Image Link
     input#image_input(type="text" name="image")
+      
+    p Categories
+    each category in categories
+      label
+        = category.name
+        input(type="checkbox" name="categories[]" value="#{category.name}")
 
-    input(type="submit" value="Create new user")
+    +submit_button("Create new Post")

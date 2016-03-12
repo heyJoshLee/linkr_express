@@ -1,0 +1,17 @@
+mixin nav_bar
+  nav
+    ul
+      li 
+        a(href="/") Home
+      li 
+        a(href="/login") Login
+      li 
+       a(href="/posts/new") New Post
+      li 
+       a(href="/categories/new") New Category
+      li 
+       a(href="/categories") Categories
+
+mixin submit_button(text)
+  - var value =  text || "submit"
+  input(type="submit" value=value)

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 All Categories
+  h4= length
+   ul
+     each category in categories
+      a(href="/categories/#{category.name}")
+        h2= category.name
+

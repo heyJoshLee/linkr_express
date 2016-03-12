@@ -6,9 +6,7 @@ var Post = mongoose.model("Post");
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  Post.find(function(err, collection) {
-    var posts = collection;
-    
+  Post.find(function(err, collection) {    
     res.render('index', {
        title: 'Express',
        posts: collection,
