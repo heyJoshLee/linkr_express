@@ -37,10 +37,13 @@ router.get('/:slug', function(req, res, next) {
   var name = req.params["slug"];
       
   Category.find({name: name}, function(err, doc) {
-    res.render('categories_show', 
-            { title: doc[0].name ,
-              category: doc[0]
-          }); 
+    Post.find({categories: name}, function(err, collection) {
+      res.render('categories_show', 
+        { title: name ,
+          category: name,
+          posts: collection
+      }); 
+    })
   });
 });
 
