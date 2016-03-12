@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var stylus = require("stylus");
 var nib = require("nib");
+var session = require("express-session");
 
 mongoose.connect("mongodb://localhost/linkr");
 
@@ -26,8 +27,14 @@ var CategorySchema = new Schema({
   name: String
 });
 
+var UserSchema = new Schema({
+  name: String,
+  password: String
+});
+
 mongoose.model("Post", PostSchema);
 mongoose.model("Category", CategorySchema);
+mongoose.model("User", UserSchema);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -69,6 +76,10 @@ app.locals.formatDate = function(date) {
   }
 }
 
+app.locals.loggedIn = function() {
+  return session.user === false;
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -87,6 +98,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session({secret: "yaylaunchschool", resave: false, saveUninitialized: true}))
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', routes);

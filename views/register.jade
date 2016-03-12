@@ -1,0 +1,13 @@
+include /_mixins
+extends layout
+  
+block content
+  h1 Sign up
+  form#sign_up(action="/login" method="post")
+    label(for="username")
+    input(type="text" name="username" id="username")
+
+    label(for="password")
+    input(type="password" name="password" id="password")
+
+    +submit_button("Sign Up!")

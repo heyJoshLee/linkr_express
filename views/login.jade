@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Log in
+
+  form#login(action="login" method="post")
+    label(for="username")
+    input(type="text" name="username" id="username")
+
+    label(for="password")
+    input(type="password" name="password" id="password")
+
+    +submit_button("Log in")

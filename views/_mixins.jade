@@ -1,16 +1,21 @@
 mixin nav_bar
   nav
     ul
+      if user
+        li Hi, #{user.name}
       li 
         a(href="/") Home
+      li
+        if user
+          a(href="/logout") Logout
+        else 
+          a(href="/login") Login
       li 
-        a(href="/login") Login
+        a(href="/posts/new") New Post
       li 
-       a(href="/posts/new") New Post
+        a(href="/categories/new") New Category
       li 
-       a(href="/categories/new") New Category
-      li 
-       a(href="/categories") Categories
+        a(href="/categories") Categories
 
 mixin submit_button(text)
   - var value =  text || "submit"
