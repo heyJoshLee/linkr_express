@@ -16,10 +16,12 @@ var PostThumbView = Backbone.View.extend({
 
   updateCurrentCategory: function(e) {
     e.preventDefault();
+    showLoader();
     var url = e.target,
         category_name = this.$el.find(".category_tag").attr("href").split("/").pop();
     posts_view.current_category = category_name;
     posts_view.model.fetch({url: url});
+    hideLoader();
   },
 
   render: function() {
@@ -31,7 +33,7 @@ var PostThumbView = Backbone.View.extend({
 
 var PostsView = Backbone.View.extend({
   model: posts,
-  el: $("main"),
+  el: $(".page"),
   template: JST["posts"],
   current_category: "All",
 
@@ -52,6 +54,14 @@ var PostsView = Backbone.View.extend({
     })
   }
 });
+
+function hideLoader() {
+  $(".loader, .loader-bg").fadeOut(200);
+}
+
+function showLoader() {
+  $(".loader, .loader-bg").fadeIn(200);
+}
 
 
 var posts_view = new PostsView();

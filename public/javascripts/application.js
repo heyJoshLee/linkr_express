@@ -1,0 +1,1 @@
+$(".loader, .loader-bg").hide();
