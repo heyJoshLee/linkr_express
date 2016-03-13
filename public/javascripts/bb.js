@@ -1,13 +1,4 @@
 var Post = Backbone.Model.extend({
-  defaults: {
-    title: "Title",
-    body: "Body",
-    author: "Author",
-    img: "",
-    slug: "",
-    categories: "",
-    date: ""
-  }
 });
 
 var Posts = Backbone.Collection.extend({
@@ -18,7 +9,18 @@ var posts = new Posts();
 
 var PostThumbView = Backbone.View.extend({
   model: new Post(),
-  template: JST["post_thumb"],
+  template: JST["post_preview"],
+  events: {
+    "click .category_tag": "updateCurrentCategory"
+  },
+
+  updateCurrentCategory: function(e) {
+    e.preventDefault();
+    var url = e.target,
+        category_name = this.$el.find(".category_tag").attr("href").split("/").pop();
+    posts_view.current_category = category_name;
+    posts_view.model.fetch({url: url});
+  },
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
@@ -30,19 +32,23 @@ var PostThumbView = Backbone.View.extend({
 var PostsView = Backbone.View.extend({
   model: posts,
   el: $("main"),
+  template: JST["posts"],
+  current_category: "All",
 
   initialize: function() {
     this.model.fetch();
     this.render();
     this.model.on("add", this.render, this);
+    this.model.on("change", this.render, this);
+    this.model.on("remove", this.render, this);
   },
 
   render: function() {
     var self = this;
-    this.$el.html("");
+    this.$el.html(this.template({category_name: this.current_category}));
 
     _.each(this.model.toArray(), function(post) {
-      self.$el.append((new PostThumbView({model: post})).render().$el)
+      self.$el.find("ul").append((new PostThumbView({model: post})).render().$el)
     })
   }
 });

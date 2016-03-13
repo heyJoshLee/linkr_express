@@ -40,16 +40,23 @@ router.post("/new", function(req, res, next) {
 
 router.get('/:slug', function(req, res, next) {
   var name = req.params["slug"];
+    console.log("looking for " + name )
+
+    Category.find({name: name}, function(err, doc) {
+      Post.find({categories: name}, function(err, collection) {
+        res.send(collection) 
+      })
+    });
       
-  Category.find({name: name}, function(err, doc) {
-    Post.find({categories: name}, function(err, collection) {
-      res.render('categories_show', 
-        { title: name ,
-          category: name,
-          posts: collection
-      }); 
-    })
-  });
+  // Category.find({name: name}, function(err, doc) {
+  //   Post.find({categories: name}, function(err, collection) {
+  //     res.render('categories_show', 
+  //       { title: name ,
+  //         category: name,
+  //         posts: collection
+  //     }); 
+  //   })
+  // });
 });
 
 

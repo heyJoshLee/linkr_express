@@ -1,0 +1,19 @@
+<li class="post_preview">
+  <a href="/posts/{{slug}}">
+    <img class="thumb" src="{{img}}" alt="" />
+  </a>
+  <div class="preview_info">
+    <a href="/posts/{{slug}}">
+      <h1>{{title}}</h1>
+    </a>
+      {{body}}
+    {{#each categories}}
+      <a href="/categories/{{this}}" class="category_tag">
+       {{this}}
+      </a>
+    {{/each}}
+    <p>{{date}}</p>
+    <a class="delete_thumb" href="posts/delete/{{slug}}">
+      Delete
+  </div>
+</li>
