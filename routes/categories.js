@@ -21,6 +21,11 @@ router.get('/new', function(req, res, next) {
   });
 });
 
+router.get('/all', function(req, res, next) {
+  Post.find(function(err, collection) {
+      res.send(collection);
+    });
+});
 
 
 router.post("/new", function(req, res, next) {

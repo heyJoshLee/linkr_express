@@ -21,19 +21,19 @@ mixin submit_button(text)
   - var value =  text || "submit"
   input(type="submit" value=value)
 
-mixin post_preview(post)
-  li.post_preview
-        a(href="/posts/#{post.slug}")
-          if post.img
-            img.thumb(src="#{post.img}", alt="")
-        .preview_info
-          a(href="/posts/#{post.slug}")
-            h1= shortenTitle(post.title)
-          bodyShorten(post.body)
+//- mixin post_preview(post)
+//-   li.post_preview
+//-         a(href="/posts/#{post.slug}")
+//-           if post.img
+//-             img.thumb(src="#{post.img}", alt="")
+//-         .preview_info
+//-           a(href="/posts/#{post.slug}")
+//-             h1= shortenTitle(post.title)
+//-           bodyShorten(post.body)
 
-          each category in post.categories
-            a(href="/categories/#{category}")
-              p.category_tag= category
-          p= formatDate(post.date)
-          a.delete_thumb(href="posts/delete/#{post.slug}").
-            Delete
+//-           each category in post.categories
+//-             a(href="/categories/#{category}")
+//-               p.category_tag= category
+//-           p= formatDate(post.date)
+//-           a.delete_thumb(href="posts/delete/#{post.slug}").
+//-             Delete
