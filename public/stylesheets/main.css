@@ -3,6 +3,10 @@ body {
   position: relative;
 }
 
+li, ol {
+  list-style: none;
+}
+
 html, body {
   padding: 0;
   margin:0;
@@ -86,8 +90,22 @@ nav:after {
   list-style: none;
   width: 900px;
   height: 200px;
-  border: 1px solid black;
+  padding-top: 20px;
+
 }
+
+.preview_info li {
+  display: inline-block;
+}
+
+.preview_info li:hover {
+  text-decoration: underline;
+}
+
+.preview_info li + li {
+  margin-left: 15px;
+}
+
 .post_preview img {
   float: left;
   margin-right: 40px;
@@ -221,6 +239,10 @@ post
 
 #post_show li + li {
   margin-left: 50px;
+}
+
+.to_category {
+  font-weight: bold;
 }
 
 

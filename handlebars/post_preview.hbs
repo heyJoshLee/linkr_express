@@ -1,33 +1,23 @@
-<li class="post_preview">
-
-  <a href="/posts/{{slug}}" class="to_post">
-    <img class="thumb" src="{{img}}" alt="" />
-  </a>
-
-  <div class="preview_info">
+<li>
+  <div class="post_preview">
     <a href="/posts/{{slug}}" class="to_post">
-      <h1>{{title}}</h1>
+      <img class="thumb" src="{{img}}" alt="">
     </a>
-    
-    <p>
-      {{body}}
-    </p>
 
-    <!-- <ul>
-      {{#each categories}}
-        <li>
-          <a href="/categories/{{this}}" class="category_tag">
-            {{this}}
-          </a>
-       </li>
+    <div class="preview_info">
+      <a href="/posts/{{slug}}" class="to_post">
+        <h1>{{title}}</h1>
+      </a>
+      <ol>
+       {{#each categories}}
+        <li><a href="categories/{{this}}" class="to_category">{{this}}</a></li>
       {{/each}}
-    </ul> -->
+      </ol>
+      <p>
+        {{body}}
+      </p>
 
-    <p>{{date}}</p>
-
-    <a class="delete_thumb" href="posts/delete/{{slug}}">
-      Delete
-    </a>
+      <p>{{date}}</p>
+    </div>
   </div>
-
 </li>
