@@ -45,14 +45,21 @@ router.post("/new", function(req, res, next) {
 
 router.get('/:slug', function(req, res, next) {
   var slug = req.params["slug"];
-      
-  Post.find({"slug": slug}, function(err, doc) {
-    res.render('posts_show', 
-            { title: 'Express' ,
-              post: doc[0],
-              p_title: doc.title
-          }); 
+ 
+   Post.find({"slug": slug}, function(err, doc) {
+    res.send(doc[0]);
   });
+
+
+
+
+  // Post.find({"slug": slug}, function(err, doc) {
+  //   res.render('posts_show', 
+  //           { title: 'Express' ,
+  //             post: doc[0],
+  //             p_title: doc.title
+  //         }); 
+  // });
 });
 
 

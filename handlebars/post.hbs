@@ -1,0 +1,15 @@
+<div id="post_show">
+  <h1> {{title}} </h1>
+  <img src="{{img}}", alt="{{title}}" />
+  <p>{{body}}</p>
+  <ul>
+    {{#each categories}}
+      <li><a href="categories/{{this}}" class="to_category">{{this}}</a></li>
+    {{/each}}
+  </ul>
+  <ul>
+    <li>Edit</li>
+    <li>Delete</li>
+  </ul>
+</div>
+
