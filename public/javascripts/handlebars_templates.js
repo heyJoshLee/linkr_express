@@ -1,5 +1,37 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["nav"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "<a href=\"/logout\"> Logout</a>";
+},"3":function(container,depth0,helpers,partials,data) {
+    return " <a href=\"/login\"> Login</a>";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<ul><li><a href=\"/\"> Home </a></li><li class=>"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.user : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "</li><li class=\"new_post\"> <a id=\"new_post\" href=\"/posts/new\"> New Post</a></li><li class=\"new_category\"> <a href=\"/categories/new\"> New Category</a></li><li class=\"categories\"> <a href=\"/categories\"> Categories</a></li></ul>";
+},"useData":true});
+
+this["JST"]["new_category"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<h1>New category</h1><form class=\"new_category\" action=\"/categories/new\" method=\"post\"><p> Category Name</p><input type=\"text\" name=\"name\"><input type=\"submit\" value=\"New Category\"></form>";
+},"useData":true});
+
+this["JST"]["new_post"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "<label>"
+    + alias2(alias1(depth0, depth0))
+    + "<input(type=\"checkbox\" name=\"categories[]\" value=\""
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.category : depth0)) != null ? stack1.name : stack1), depth0))
+    + "\")></label>";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<h1>New Post</h1><form class=\"new_post\" action=\"/posts/new\" method=\"post\"><label for=\"title_input\">Title</label><input id=\"title_input\" type=\"text\" name=\"title\"><label for=\"body_input\">Body</label><textarea id=\"body_input\" type=\"textarea\" name=\"body\" rows=\"12\"></textarea><label for=\"image_input\">Image Link</label><input id=\"image_input\" type=\"text\" name=\"image\"><p>Categories<p>"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.categories : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "<input type=\"submit\" value=\"Create new post\" ></form>";
+},"useData":true});
+
 this["JST"]["post"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var alias1=container.lambda, alias2=container.escapeExpression;
 

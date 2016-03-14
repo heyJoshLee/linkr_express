@@ -18,8 +18,7 @@ router.get('/', function(req, res, next) {
     res.render('index', {
        title: 'Express',
        posts: collection,
-       user: user,
-       length: collection.length
+       user: user
     });
   });
 });

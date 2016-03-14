@@ -1,5 +1,5 @@
 var Post = Backbone.Model.extend({
-  url: "/posts"
+  url: "/posts/new"
 });
 
 var Posts = Backbone.Collection.extend({
@@ -69,10 +69,20 @@ var PostsView = Backbone.View.extend({
 var PostView = Backbone.View.extend({
   model: new Post(),
   template: JST["post"],
+  new_template: JST["new_post"],
   el: $(".page"),
 
   events: {
-    "click .to_category": "updateCurrentCategory"
+    "click .to_category": "updateCurrentCategory",
+    "submit .new_post": "create"
+  },
+
+  create: function (e){
+    e.preventDefault();
+    showLoader();
+    console.log("subbmited");
+    //this.model.save();
+    hideLoader();
   },
 
   updateCurrentCategory: function(e) {
@@ -93,17 +103,44 @@ var PostView = Backbone.View.extend({
   render: function() {
     this.$el.html("");
     this.$el.html(this.template(this.model.toJSON()));
+  },
+
+  renderForm: function() {
+    this.$el.html("");
+    this.$el.html(this.new_template());
   }
 
 });
 
+var NavView = Backbone.View.extend({
+  template: JST["nav"],
+  new_category_page: JST["new_category"],
+  el: $("nav"),
+  initialize: function() {
+    this.render();
+  },
 
+  events: {
+    "click .new_post": "newPostForm",
+    "click .new_category": "newCategoryForm"
+  },
 
+  newPostForm: function(e) {
+    e.preventDefault();
+    post_view.renderForm();
+  },
 
+  newCategoryForm: function(e) {
+    e.preventDefault();
+    $("main").html(this.new_category_page());
+  },
 
+  render: function() {
+    this.$el.html(this.template());
+  }
+});
 
-
-
+var nav_view = new NavView(); 
 var posts_view = new PostsView();
 var post_view = new PostView();
 
@@ -114,4 +151,3 @@ function hideLoader() {
 function showLoader() {
   $(".loader, .loader-bg").fadeIn(200);
 }
-

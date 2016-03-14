@@ -15,19 +15,20 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/new', function(req, res, next) {
+// router.get('/new', function(req, res, next) {
 
-  Category.find(function(err, collection) {
-    res.render('posts_new', { 
-      title: 'Express',
-      categories: collection
-    });
-  });
-});
+//   Category.find(function(err, collection) {
+//     res.render('posts_new', { 
+//       title: 'Express',
+//       categories: collection
+//     });
+//   });
+// });
 
 
 
 router.post("/new", function(req, res, next) {
+  console.log("post new")
   var post = new Post({
                       title: req.body["title"],
                       body: req.body["body"],
@@ -39,7 +40,8 @@ router.post("/new", function(req, res, next) {
             });
 
     post.save(function(err, doc) {
-      res.redirect("/");    
+      console.log("saved: " + doc);
+      next();
     });
 });
 

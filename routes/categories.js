@@ -4,15 +4,15 @@ var mongoose = require("mongoose");
 var Category = mongoose.model("Category");
 var Post = mongoose.model("Post");
 
-router.get('/', function(req, res, next) {
+// router.get('/', function(req, res, next) {
 
-  Category.find(function(err, collection) {    
-    res.render('categories_index', {
-       title: 'Express',
-       categories: collection
-    });
-  });
-});
+//   Category.find(function(err, collection) {    
+//     res.render('categories_index', {
+//        title: 'Express',
+//        categories: collection
+//     });
+//   });
+// });
 
 
 router.get('/new', function(req, res, next) {

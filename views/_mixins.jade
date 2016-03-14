@@ -1,25 +1,25 @@
-mixin nav_bar
-  nav
-    ul
-      if user
-        li Hi, #{user.name}
-      li 
-        a(href="/") Home
-      li
-        if user
-          a(href="/logout") Logout
-        else 
-          a(href="/login") Login
-      li 
-        a#new_post(href="/posts/new") New Post
-      li 
-        a(href="/categories/new") New Category
-      li 
-        a(href="/categories") Categories
+//- mixin nav_bar
+//-   nav
+//-     ul
+//-       if user
+//-         li Hi, #{user.name}
+//-       li 
+//-         a(href="/") Home
+//-       li
+//-         if user
+//-           a(href="/logout") Logout
+//-         else 
+//-           a(href="/login") Login
+//-       li 
+//-         a#new_post(href="/posts/new") New Post
+//-       li 
+//-         a(href="/categories/new") New Category
+//-       li 
+//-         a(href="/categories") Categories
 
-mixin submit_button(text)
-  - var value =  text || "submit"
-  input(type="submit" value=value)
+//- mixin submit_button(text)
+//-   - var value =  text || "submit"
+//-   input(type="submit" value=value)
 
 //- mixin post_preview(post)
 //-   li.post_preview

@@ -2,26 +2,26 @@ extends layout
 
 
 block content
-  h1 New Post
+  //- h1 New Post
 
-  form.new_post(action="/posts/new" method="post" )
+  //- form.new_post(action="/posts/new" method="post" )
 
-    label(for="title_input")
-      p Title
-    input#title_input(type="text" name="title")
+  //-   label(for="title_input")
+  //-     p Title
+  //-   input#title_input(type="text" name="title")
       
-    label(for="body_input")
-      p Body
-    textarea#body_input(type="textarea" name="body" rows="12")
+  //-   label(for="body_input")
+  //-     p Body
+  //-   textarea#body_input(type="textarea" name="body" rows="12")
             
-    label(for="image_input")
-      p Image Link
-    input#image_input(type="text" name="image")
+  //-   label(for="image_input")
+  //-     p Image Link
+  //-   input#image_input(type="text" name="image")
       
-    p Categories
-    each category in categories
-      label
-        = category.name
-        input(type="checkbox" name="categories[]" value="#{category.name}")
+  //-   p Categories
+  //-   each category in categories
+  //-     label
+  //-       = category.name
+  //-       input(type="checkbox" name="categories[]" value="#{category.name}")
 
-    +submit_button("Create new Post")
+  //-   +submit_button("Create new Post")

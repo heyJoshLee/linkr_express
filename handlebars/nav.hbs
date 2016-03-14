@@ -1,0 +1,26 @@
+<ul>
+  <li>
+    <a href="/"> Home </a>
+  </li>
+
+  <li class=>
+  {{#if user}}
+     <a href="/logout"> Logout</a>
+  {{else}} 
+    <a href="/login"> Login</a>
+  {{/if}}
+  </li>
+
+  <li class="new_post"> 
+    <a id="new_post" href="/posts/new"> New Post</a>
+  </li>
+
+  <li class="new_category"> 
+    <a href="/categories/new"> New Category</a>
+  </li>
+
+  <li class="categories"> 
+    <a href="/categories"> Categories</a>
+  </li>
+
+</ul>
